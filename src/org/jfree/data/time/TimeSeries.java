@@ -1053,10 +1053,8 @@ public class TimeSeries extends Series implements Cloneable, Serializable {
         if (end < start) {
             throw new IllegalArgumentException("Requires start <= end.");
         }
-        TimeSeries copy = (TimeSeries) super.clone();
+        TimeSeries copy = (TimeSeries) this.clone();
         copy.data = new java.util.ArrayList();
-        copy.minY = Double.NaN;
-        copy.maxY = Double.NaN;
         if (this.data.size() > 0) {
             for (int index = start; index <= end; index++) {
                 TimeSeriesDataItem item
